@@ -26,4 +26,8 @@ class MemberController:
     def get_member_by_id(self, member_id):
         """Fetches a single member by ID."""
         query = "SELECT * FROM tbl_addmember WHERE id = ?"
-        return self.db.fetch_data(query, (member_id,))
+        result = self.db.fetch_data(query, (member_id,))
+        if result and len(result) != 0:
+            return result[0]
+        else: 
+            return None

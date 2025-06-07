@@ -11,9 +11,12 @@ class IssueController:
         query_update = "UPDATE tbl_addbook SET isAvail = FALSE WHERE id = ?"
 
         values_issue = (book_id, member_id, datetime.now(), 0)
-        self.db.execute_query(query_issue, values_issue)
-        self.db.execute_query(query_update, (book_id,))
-        return {"success": True, "message": "Book issued successfully!"}
+        try:
+            self.db.execute_query(query_issue, values_issue)
+            self.db.execute_query(query_update, (book_id,))
+            return {"success": True, "message": "Book issued successfully!"}
+        except RuntimeError as e:
+            return {"success": False, "message": str(e)}
 
     def return_book(self, book_id):
         """Returns a book and updates availability."""

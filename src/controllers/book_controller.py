@@ -25,4 +25,8 @@ class BookController:
     def get_book_by_id(self, book_id):
         """Fetches a single book by ID."""
         query = "SELECT * FROM tbl_addbook WHERE id = ?"
-        return self.db.fetch_data(query, (book_id,))
+        result = self.db.fetch_data(query, (book_id,))
+        if result and len(result) != 0:
+            return result[0]
+        else: 
+            return None
