@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>src/resources/icons/add_book.png</file>
+    <file>src/resources/icons/add_member.png</file>
+    <file>src/resources/icons/issue_book.png</file>
+    <file>src/resources/icons/renew_book.png</file>
+    <file>src/resources/icons/submit_book.png</file>
+    <file>src/resources/icons/view_book.png</file>
+    <file>src/resources/icons/view_person.png</file>
+  </qresource>
+</RCC>
