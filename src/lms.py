@@ -130,15 +130,13 @@ class LibrarySystem(QMainWindow, Ui_MainWindow):
         
         result = IssueController().get_issued_books()
 
-        self.tableWidget_bookinfo.clearContents()
+        self.tableWidget_bookinfo.setRowCount(0)
 
         if result["success"]==False:
             QMessageBox.critical(self, "All Issued Books", result["message"])
             return
         
         books = result["books"]
-        self.tableWidget_bookinfo.setRowCount(len(books))
-        self.tableWidget_bookinfo.setColumnCount(len(books[0]))  
 
         for row_number, book_data in enumerate(books):
             self.tableWidget_bookinfo.insertRow(row_number)
