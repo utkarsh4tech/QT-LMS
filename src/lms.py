@@ -162,6 +162,7 @@ class LibrarySystem(QMainWindow, Ui_MainWindow):
 
         if result["success"]:
             QMessageBox.information(self, "Submit Book", result["message"])
+            self.load_issued()
             return
         else:
             QMessageBox.critical(self, "Submit Book", result["message"])
